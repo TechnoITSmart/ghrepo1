@@ -1,6 +1,6 @@
 
 
-
+-- Code returned for DETACH records from master file
 
 CREATE COMPUTE MODULE FileTest_PrepareFileB
 	CREATE FUNCTION Main() RETURNS BOOLEAN
