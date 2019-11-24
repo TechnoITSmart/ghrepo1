@@ -1,0 +1,10 @@
+
+
+CREATE DATABASE MODULE FileTest_Database
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET Environment.Variables.FileAData = Root.DFDL.TestData;
+		RETURN TRUE;
+	END;
+
+END MODULE;

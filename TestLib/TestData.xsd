@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:csv="http://www.ibm.com/dfdl/CommaSeparatedFormat" xmlns:dfdl="http://www.ogf.org/dfdl/dfdl-1.0/" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions">
+
+
+    <xsd:import namespace="http://www.ibm.com/dfdl/CommaSeparatedFormat" schemaLocation="IBMdefined/CommaSeparatedFormat.xsd"/>
+    <xsd:annotation>
+		<xsd:appinfo source="http://www.ogf.org/dfdl/">
+			<dfdl:format documentFinalTerminatorCanBeMissing="yes" encoding="{$dfdl:encoding}" escapeSchemeRef="csv:CSVEscapeScheme" ref="csv:CommaSeparatedFormat"/>
+		</xsd:appinfo>
+	</xsd:annotation>
+
+	<xsd:element ibmSchExtn:docRoot="true" name="TestData">
+		<xsd:complexType>
+			<xsd:sequence dfdl:separator="">
+				<xsd:element dfdl:terminator="%LF;%WSP*;" name="header">
+					<xsd:complexType>
+						<xsd:sequence dfdl:separator=";" dfdl:separatorPosition="infix">
+							<xsd:element default="head_value1" minOccurs="0" name="head_field1" type="xsd:string"/>
+							<xsd:element default="head_value2" minOccurs="0" name="head_field2" type="xsd:string"/>							
+							<xsd:element default="head_value3" minOccurs="0" name="head_field3" type="xsd:string"/>							
+                            <xsd:element default="head_value4" minOccurs="0" name="head_field4" type="xsd:string"/>
+                            <xsd:element default="head_value5" minOccurs="0" name="head_field5" type="xsd:string"/>
+                        </xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>			
+				<xsd:element dfdl:occursCountKind="implicit" dfdl:terminator="%LF;%WSP*;" maxOccurs="unbounded" name="record">
+					<xsd:complexType>
+						<xsd:sequence dfdl:separator=";" dfdl:separatorPosition="infix" dfdl:separatorSuppressionPolicy="never" dfdl:terminator=""> 
+							<xsd:element default="value1" dfdl:emptyValueDelimiterPolicy="none" dfdl:nilKind="literalValue" dfdl:nilValue="%ES;" dfdl:terminator="" dfdl:useNilForDefault="yes" name="name" nillable="true" type="xsd:string"/>
+							<xsd:element default="value2" dfdl:emptyValueDelimiterPolicy="none" dfdl:nilKind="literalValue" dfdl:nilValue="%ES;" dfdl:terminator="" dfdl:useNilForDefault="yes" name="empID" nillable="true" type="xsd:string"/>
+							<xsd:element default="value3" dfdl:emptyValueDelimiterPolicy="none" dfdl:nilKind="literalValue" dfdl:nilValue="%ES;" dfdl:terminator="" dfdl:useNilForDefault="yes" name="count" nillable="true" type="xsd:string"/>
+                            <xsd:element default="value4" dfdl:emptyValueDelimiterPolicy="none" dfdl:nilKind="literalValue" dfdl:nilValue="%ES;" dfdl:terminator="" dfdl:useNilForDefault="yes" name="phone" nillable="true" type="xsd:string"/>
+                            <xsd:element default="value5" dfdl:emptyValueDelimiterPolicy="none" dfdl:nilKind="literalValue" dfdl:nilValue="%ES;" dfdl:terminator="" dfdl:useNilForDefault="yes" name="address" nillable="true" type="xsd:string"/>
+                        </xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>				
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+
+
+</xsd:schema>
